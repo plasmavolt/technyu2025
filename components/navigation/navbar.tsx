@@ -12,7 +12,7 @@ const Navbar = () => {
           Logo
         </div>
         <div className='gap-5 md:gap-10 text-xl lg:text-2xl hidden md:flex'>
-          <a href="#" className='text-white hover:underline'>Home</a>
+          <a href="/team" className='text-white hover:underline'>Team</a>
           <a href="#" className='text-white hover:underline'>About</a>
           <NavigationDropdown name="Programs" items={programs.map(prog => ({ name: prog, href: `#${prog.toLowerCase().replace(/\s+/g, '-')}` }))} />
           <a href="#" className='text-white hover:underline'>Contact</a>

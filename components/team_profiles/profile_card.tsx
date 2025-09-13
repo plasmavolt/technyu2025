@@ -1,0 +1,149 @@
+'use client'
+
+import React, { useRef, useEffect } from 'react'
+import Image from 'next/image'
+import { TeamMember } from '@/lib/types'
+import { gsap } from 'gsap'
+import { ArrowUpRight } from 'lucide-react'
+
+const ProfileCard = ({ member }: { member: TeamMember }) => {
+  const cardRef = useRef<HTMLAnchorElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLImageElement>(null)
+  const linkedinRef = useRef<HTMLDivElement>(null)
+  const greenShadowRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const card = cardRef.current
+    const content = contentRef.current
+    const image = imageRef.current
+    const linkedin = linkedinRef.current
+    const greenShadow = greenShadowRef.current
+
+    if (!card || !content || !image || !linkedin || !greenShadow) return
+
+    // Create a timeline instance scoped to this component
+    let enterTimeline: gsap.core.Timeline | null = null
+    let exitTimeline: gsap.core.Timeline | null = null
+
+    // Set initial states for this specific card's elements - green shadow replaces black overlay
+    gsap.set(greenShadow, { 
+      scaleY: 0,
+      transformOrigin: "bottom",
+      opacity: 0
+    })
+    
+    // Position content so LinkedIn is initially hidden below the card
+    gsap.set(content, { y: linkedin ? 50 : 0 })
+
+    // Hover enter animation - scoped to this card's elements only
+    const handleMouseEnter = () => {
+      // Kill any existing animations on this card's elements
+      if (exitTimeline) exitTimeline.kill()
+      
+      enterTimeline = gsap.timeline()
+      
+      enterTimeline.to(image, { scale: 1.1, duration: 0.6, ease: "power2.out" })
+        .to(greenShadow, { 
+          scaleY: 1,
+          opacity: 1, 
+          duration: 0.4, 
+          ease: "power2.out" 
+        }, 0)
+        .to(content, {
+          y: linkedin ? -10 : -25,
+          duration: 0.3,
+          ease: "power2.out"
+        }, 0.1)
+    }
+
+    // Hover exit animation - scoped to this card's elements only
+    const handleMouseLeave = () => {
+      // Kill any existing animations on this card's elements
+      if (enterTimeline) enterTimeline.kill()
+      
+      exitTimeline = gsap.timeline()
+      
+      exitTimeline.to(content, {
+          y: linkedin ? 50 : 0,
+          duration: 0.3,
+          ease: "power2.out"
+        })
+        .to(greenShadow, { 
+          scaleY: 0,
+          opacity: 0, 
+          duration: 0.3, 
+          ease: "power2.in" 
+        }, 0.2)
+        .to(image, { 
+          scale: 1, 
+          duration: 0.4, 
+          ease: "power2.out" 
+        }, 0)
+    }
+
+    card.addEventListener('mouseenter', handleMouseEnter)
+    card.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      // Clean up event listeners and kill any running animations for this card
+      card.removeEventListener('mouseenter', handleMouseEnter)
+      card.removeEventListener('mouseleave', handleMouseLeave)
+      
+      if (enterTimeline) enterTimeline.kill()
+      if (exitTimeline) exitTimeline.kill()
+    }
+  }, [])
+
+  return (
+    <a 
+      href={"/learn_more"} 
+      ref={cardRef} 
+      className="relative group overflow-hidden border border-border cursor-pointer block min-h-[300px] sm:min-h-[325px] lg:min-h-[350px] aspect-[4/5]"
+      aria-label={`Learn more about ${member.name}`}
+    >
+        <Image
+        ref={imageRef}
+        src={member.imageUrl}
+        alt={member.name}
+        width={392}
+        height={694}
+        className="w-full h-full object-cover"
+        />
+    {/* Green shadow effect that appears on hover */}
+    <div 
+      ref={greenShadowRef}
+      className="absolute inset-0" 
+      style={{ boxShadow: 'inset 0px 0px 100px rgba(77, 255, 148, 0.4)' }}
+    ></div>
+    {/* Permanent text background for readability */}
+    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent h-32"></div>
+    <div ref={contentRef} className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
+      <div>
+        <h5 className="text-2xl font-bold">{member.name}</h5>
+        <p className="text-base font-normal">{member.title}</p>
+        
+        {/* LinkedIn link that appears on hover */}
+        {member.linkedinUrl && (
+          <div ref={linkedinRef} className="mt-3">
+            <span
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                window.open(member.linkedinUrl, '_blank', 'noopener,noreferrer')
+              }}
+              className="relative z-30 inline-flex items-center gap-2 text-sm text-white hover:opacity-80 transition-opacity underline underline-offset-4 cursor-pointer"
+              aria-label={`${member.name}'s LinkedIn profile`}
+            >
+              <span>LinkedIn</span>
+                <ArrowUpRight size={16} />
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  </a>
+  )
+}
+
+export default ProfileCard

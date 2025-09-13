@@ -1,4 +1,5 @@
 import { url } from "inspector"
+import { ProgramCardProps, TeamMember } from "./types"
 
 export const programs = [
     "Dev Team",
@@ -19,13 +20,6 @@ export const about = [
     "Team",
     "Mission",
 ]
-export type ProgramCardProps = {
-  name: string;
-  url: string;
-  svgicon: string;
-  tagline: string;
-  description: string;
-};
 
 export const programsLinks: ProgramCardProps[] = [
     {
@@ -38,22 +32,57 @@ export const programsLinks: ProgramCardProps[] = [
     {
         name: "Tech Treks",
         url: "/tech-treks",
-        svgicon: "/program-logos/tech-treks.svg",
+        svgicon: "/program-logos/tt.svg",
         tagline: "The original program for newbies in tech",
         description: "Explore the tech industry with us! Meet professionals, visit companies, and get a behind-the-scenes look at the world of technology."
     },
     {
         name: "Startup Week",
         url: "/startup-week",
-        svgicon: "/program-logos/startup-week.svg",
+        svgicon: "/program-logos/tech-treks.svg",
         tagline: "Launch your startup journey",
         description: "Join us for a week-long event where you'll learn from industry experts, network with like-minded individuals, and turn your ideas into reality."
     },
     {
         name: "Mentorship",
         url: "/mentorship",
-        svgicon: "/program-logos/mentorship.svg",
+        svgicon: "/program-logos/startup-week.svg",
         tagline: "Guidance from those who came before you",
         description: "Connect with experienced mentors who can provide valuable insights, advice, and support as you navigate your career in tech."
+    }
+]
+
+export const team_members: TeamMember[] = [
+    {
+        name: "Sean Lai",
+        title: "Vice President",
+        category: "Startups + Growth",
+        imageUrl: "/team_pics/sean-lai.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/seanlai/",
+        slug: "sean-lai"
+    },
+    {
+        name: "Seth Derusha",
+        title: "Eboard, Tech-treks",
+        category: "investors",
+        imageUrl: "/team_pics/seth-derusha.jpeg",
+        linkedinUrl: "https://www.linkedin.com/in/sethderusha/",
+        slug: "seth-derusha"
+    },
+    {
+        name: "Aimee Yu",
+        title: "Eboard, Tech Treks",
+        category: "investors",
+        imageUrl: "/team_pics/aimee-yu.jpeg",
+        linkedinUrl: "https://www.linkedin.com/in/aimeeyyu/",
+        slug: "aimee-yu"
+    },
+    {
+        name: "Nicole Wu",
+        title: "Eboard, Startup Team",
+        category: "investors",
+        imageUrl: "/team_pics/nicole-wu.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/nicolewu/",
+        slug: "nicole-wu"
     }
 ]

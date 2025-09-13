@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { ProgramCardProps } from '@/lib/consts'
+import { ProgramCardProps } from '@/lib/types'
 import Image from 'next/image'
 
 const ProgramCard = ({ProgramDetail, variant}: {ProgramDetail: ProgramCardProps, variant: string}) => {
@@ -8,12 +8,12 @@ const ProgramCard = ({ProgramDetail, variant}: {ProgramDetail: ProgramCardProps,
   return (
     <div className={`rectangle ${variant ? variant : ''} flex justify-between flex-col sm:flex-row`}>
       <div className='flex flex-col w-full sm:w-[70%] p-5 '>
-        <div className='h-36 w-36 flex items-center justify-center relative mt-20 sm:mt-16 shadow-none'>
+        <div className='h-48 w-48 flex items-center justify-center relative mt-20 sm:mt-16 shadow-none'>
           <Image 
             src={`${svgicon}`}  
             alt={`${name} logo`}
             fill
-            className='w-full h-full bg-none'
+            className='w-full h-full'
           />
         </div>
         <h1 className="text-white text-5xl font-bold text-left tracking-wide pb-3">
