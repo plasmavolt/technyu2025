@@ -1,0 +1,48 @@
+.burger{
+    width: 22.5px;
+    position: relative;
+    pointer-events: none;
+}
+
+.label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.label p:nth-of-type(2){
+    position: absolute;
+}
+
+.label p:nth-of-type(2){
+    opacity: 0;
+}
+.burger::after, .burger::before{
+    content: "";
+    height: 2px;
+    z-index: 100;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    display: block;
+    transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.burger::after{
+    top: -4px;
+}
+
+.burger::before{
+    top: 4px;
+}
+
+.burgerActive::after{
+    transform: rotate(45deg);
+    top: -1px;
+}
+
+.burgerActive::before{
+    transform: rotate(-45deg);
+    top: 1px;
+}

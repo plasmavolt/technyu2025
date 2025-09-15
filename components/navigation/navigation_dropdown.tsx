@@ -1,10 +1,12 @@
 import React from 'react'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
@@ -26,37 +28,31 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
   className 
 }) => {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger 
-        className={cn(
-          "text-md font-normal text-white  transition-colors focus:outline-none ",
-          className
-        )}
-      >
-        {name}
-        <ChevronDown className="inline lg:h-8 lg:w-8 w-4 h-4 mr-[-1rem]" />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        className="border-none shadow-none bg-red-100 p-20 pt-2 min-w-[8rem] w-fit mt-8"
-        align="start"
-        sideOffset={8}
-      >
-        {items.map((item) => (
-          <DropdownMenuItem 
-            key={item.name} 
-            className="hover:bg-transparent focus:bg-transparent cursor-pointer font-satoshi px-0"
-            asChild
-          >
-            <Link
-              href={item.href}
-              className="text-3xl text-white hover:text-gray-900 hover:underline py-1"
-            >
-              {item.name}
-            </Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className={cn(
+            "text-md font-normal text-white transition-colors focus:outline-none",
+            className
+          )}>
+            {name}
+            {/* <ChevronDown className="inline lg:h-8 lg:w-8 w-4 h-4 ml-1" /> */}
+          </NavigationMenuTrigger>
+          <NavigationMenuContent className="border-none bg-black shadow-none p-10 pt-2 z-30 pb-20 min-w-[8rem] w-fit mt-8 text-left">
+            {items.map(item => (
+              <NavigationMenuLink asChild key={item.name}>
+                <Link
+                  href={item.href}
+                  className="block text-3xl text-white hover:text-gray-900 hover:underline py-1"
+                >
+                  {item.name}
+                </Link>
+              </NavigationMenuLink>
+            ))}
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   )
 }
 

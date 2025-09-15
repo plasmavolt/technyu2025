@@ -1,18 +1,16 @@
 'use client'
 
 import React from 'react'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ChevronDown, X } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import TeamSearch from './team_search'
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
 
 interface TeamFiltersMobileProps {
   categories: string[]
@@ -34,71 +32,68 @@ const TeamFiltersMobile = ({
   }
 
   return (
-    <div className='lg:hidden w-[90%] px-4 mb-8'>
-      {/* Header with Title and Filter Button */}
-      <div className='flex justify-between items-center mb-6'>
-        <h2 className='font-bold font-satoshi text-2xl sm:text-3xl text-white'>Team</h2>
+    <div className='lg:hidden w-[90%] px-4'>
+      {/* Header with Title */}
+      <div className='flex justify-between items-center mb-2 gap-4'>
+        <h2 className='font-bold font-satoshi text-2xl sm:text-3xl text-white mb-4 pt-4'>Team</h2>
         
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="sm" className='flex items-center gap-2'>
-              <Menu size={16} />
+        {/* Search and Filter Row */}
+        <div className='flex gap-3 items-center'>
+          <DropdownMenu>
+            <DropdownMenuTrigger 
+              className={cn(
+                "text-md font-satoshi font-normal text-white transition-colors focus:outline-none flex items-center gap-2 px-4 py-3 border border-white/20 rounded-lg hover:bg-white/10 whitespace-nowrap"
+              )}
+            >
               Filter
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <SheetHeader>
-              <SheetTitle>Filter Team Members</SheetTitle>
-              <SheetDescription>
-                Choose a category to filter team members
-              </SheetDescription>
-            </SheetHeader>
-            <div className="grid gap-4 py-4">
-              <div className="space-y-2">
-                <h4 className="font-medium text-sm text-muted-foreground">Categories</h4>
-                <div className="grid gap-2">
-                  {categories.map((category) => (
-                    <Button
-                      key={category}
-                      variant={activeFilter === category ? "default" : "ghost"}
-                      size="sm"
-                      onClick={() => handleFilterSelect(category)}
-                      className="justify-start"
-                    >
-                      {category}
-                      {activeFilter === category && (
-                        <span className="ml-auto">✓</span>
-                      )}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+              <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className="border-none shadow-lg bg-gray-900/95 backdrop-blur-sm p-4 min-w-[200px] mt-2"
+            align="end"
+            sideOffset={8}
+          >
+            {categories.map((category) => (
+              <DropdownMenuItem 
+                key={category} 
+                className="hover:bg-green-500/20 focus:bg-green-500/20 cursor-pointer font-satoshi px-3 py-2 rounded-md transition-colors"
+                onClick={() => handleFilterSelect(category)}
+              >
+                <span className={cn(
+                  "text-white hover:text-green-400 transition-colors",
+                  activeFilter === category && "text-green-400 font-medium"
+                )}>
+                  {category}
+                </span>
+                {activeFilter === category && (
+                  <span className="ml-auto text-green-400">✓</span>
+                )}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+          </DropdownMenu>
+          
+          <TeamSearch
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            className='flex-1'
+          />
+        </div>
       </div>
-
-      {/* Search Bar - Always Visible */}
-      <TeamSearch
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        className='mb-4'
-      />
 
       {/* Active Filter Indicator */}
       {activeFilter !== 'All' && (
-        <div className='flex items-center gap-2 mb-4'>
-          <span className='text-sm text-muted-foreground'>Active filter:</span>
-          <Badge variant="secondary" className="flex items-center gap-1">
+        <div className='flex items-center gap-2 text-white mb-4'>
+          <span className='text-sm'>Active filter:</span>
+          <Badge variant="secondary" className="flex items-center gap-1 bg-green-500/20 text-green-400 border-green-500/30">
             {activeFilter}
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setActiveFilter('All')}
-              className="h-4 w-4 p-0 hover:bg-transparent"
+              className="ml-1 hover:text-green-200 transition-colors"
+              aria-label="Clear filter"
             >
               <X size={12} />
-            </Button>
+            </button>
           </Badge>
         </div>
       )}

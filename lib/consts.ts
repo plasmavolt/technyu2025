@@ -88,7 +88,7 @@ export const team_members: TeamMember[] = [
     {
         name: "Seth Derusha",
         title: "Eboard, Tech-treks",
-        category: "Early Talent",
+        category: "Program Leads",
         imageUrl: "/team_pics/seth-derusha.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/sethderusha/",
         slug: "seth-derusha"
@@ -96,7 +96,7 @@ export const team_members: TeamMember[] = [
     {
         name: "Aimee Yu",
         title: "Eboard, Tech Treks",
-        category: "Early Talent",
+        category: "Program Leads",
         imageUrl: "/team_pics/aimee-yu.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/aimeeyyu/",
         slug: "aimee-yu"
@@ -104,7 +104,7 @@ export const team_members: TeamMember[] = [
     {
         name: "Nicole Wu",
         title: "Eboard, Startup Team",
-        category: "Startups",
+        category: "Program Leads",
         imageUrl: "/team_pics/nicole-wu.jpg",
         linkedinUrl: "https://www.linkedin.com/in/nicolewu/",
         slug: "nicole-wu"
@@ -112,7 +112,7 @@ export const team_members: TeamMember[] = [
     {
         name: "Andy Li",
         title: "Eboard, Dev Team",
-        category: "Dev Team",
+        category: "Program Leads",
         imageUrl: "/team_pics/andy-li.png",
         linkedinUrl: "https://www.linkedin.com/in/andy-li/",
         slug: "andy-li"
@@ -132,5 +132,12 @@ export const team_members: TeamMember[] = [
         imageUrl: "/team_pics/vivek-patel.png",
         linkedinUrl: "https://www.linkedin.com/in/vivek-patel-827b958b/",
         slug: "vivek-patel"
+    },{
+        name: "Terri Burns",
+        title: "Type Capital Founder, Former President",
+        category: "Emeritus",
+        imageUrl: "/team_pics/terri-burns.png",
+        linkedinUrl: "https://www.linkedin.com/in/terri-burns-927b4b1b/",
+        slug: "terri-burns"
     }
 ]

@@ -14,7 +14,7 @@ const TeamSearch = ({
   searchQuery,
   setSearchQuery,
   className = '',
-  placeholder = 'Search by name or role...'
+  placeholder = 'Search'
 }: TeamSearchProps) => {
   const handleClear = () => {
     setSearchQuery('')
