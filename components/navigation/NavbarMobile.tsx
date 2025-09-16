@@ -4,7 +4,7 @@ import styles from './navigation.module.css'
 const NavbarMobile = () => {
     const [selectedLink, setSelectedLink] = useState({isActive: false, index: 0});
     return (
-        <motion.div className='overflow-hidden'>
+        <motion.div className='overflow-hidden w-full'>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
           {/* <Body links={links} selectedLink={selectedLink} setSelectedLink={setSelectedLink}/>

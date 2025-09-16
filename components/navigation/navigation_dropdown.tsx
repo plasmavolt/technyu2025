@@ -38,7 +38,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
             {name}
             {/* <ChevronDown className="inline lg:h-8 lg:w-8 w-4 h-4 ml-1" /> */}
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="border-none bg-black shadow-none p-10 pt-2 z-30 pb-20 min-w-[8rem] w-fit mt-8 text-left">
+          <NavigationMenuContent className="border-none shadow-none p-10 pt-2 z-50 pb-20 min-w-[8rem] w-fit mt-8 text-left">
             {items.map(item => (
               <NavigationMenuLink asChild key={item.name}>
                 <Link

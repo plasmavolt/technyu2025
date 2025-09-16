@@ -82,7 +82,7 @@ const TeamGrid = () => {
   return (
     <div className='w-[100svw] h-fit flex flex-col items-center pb-[20svh] pt-[10svh]'>
       {/* Sticky Filter Section */}
-      <div className='sticky top-39 z-20 w-[100svw] flex justify-center bg-black'>
+      <div className='sticky top-39 z-30 w-[100svw] flex justify-center bg-black'>
         {/* Desktop Filter Section */}
         <TeamFiltersDesktop
           categories={categories}
