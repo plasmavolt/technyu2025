@@ -8,7 +8,7 @@ const ProgramCard = ({ProgramDetail, variant}: {ProgramDetail: ProgramCardProps,
   return (
     <div className={`rectangle ${variant ? variant : ''} flex justify-between flex-col sm:flex-row`}>
       <div className='flex flex-col w-full sm:w-[70%] p-5 '>
-        <div className='h-48 w-48 flex items-center justify-center relative mt-20 sm:mt-16 shadow-none'>
+        <div className={`h-48 w-48 flex items-center justify-center relative mt-20 sm:mt-16 shadow-none ${ProgramDetail.svgicon === "/program-logos/mentorship.svg" ? "-ml-10" : "-ml-5"}`}>
           <Image 
             src={`${svgicon}`}  
             alt={`${name} logo`}
