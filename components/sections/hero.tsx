@@ -31,7 +31,7 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
       
       {/* Bottom-right aligned content with padding */}
-      <div className="relative z-10 flex flex-col items-start justify-end w-full h-full text-white p-5 md:p-10 lg:p-12">
+      <div className="relative z-1 flex flex-col items-start justify-end w-full h-full text-white p-5 md:p-10 lg:p-12">
         <div className="max-w-3xl">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-left font-satoshi">tech@nyu</h1>
           <p className="text-sm sm:text-base md:text-lg text-left font-satoshi">
