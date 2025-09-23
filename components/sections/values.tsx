@@ -33,7 +33,7 @@ const Values = () => {
       <div className="relative z-20 w-full h-[300svh] mt-[10vh] mb-[10vh] pt-[10vh]">
         {/* Parallax sticky cards */}
         <div className="sticky top-0 w-full h-screen mt-[10vh]">
-          <div className="w-[80vw] h-[50vh]flex items-center justify-center text-3xl font-bold ml-[5vw]">
+          <div className="w-[80vw] h-[50vh] flex items-center justify-center text-3xl font-bold ml-[5vw]">
             <ValueCard ProgramDetail={{name: "Innovation", url: "#", svgicon: "/values-logos/innovation.svg", description: "We strive to push the boundaries of technology and creativity, fostering an environment where new ideas can flourish."}} variant="purple"/>
           </div>
         </div>

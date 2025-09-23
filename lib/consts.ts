@@ -74,6 +74,14 @@ export const team_members: TeamMember[] = [
         slug: "sean-lai"
     },
     {
+        name: "Cyan Yan",
+        title: "Eboard, Dev Team",
+        category: "Program Leads",
+        imageUrl: "/team_pics/cyan-yan.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/cyan-yan-9b0b621b4/",
+        slug: "cyan-yan"
+    },
+    {
         name: "Kevin Dong",
         title: "Vice President",
         category: "Leadership",
@@ -88,6 +96,14 @@ export const team_members: TeamMember[] = [
         imageUrl: "/team_pics/parul-veda.jpg",
         linkedinUrl: "https://www.linkedin.com/in/parulveda/",
         slug: "parul-veda"
+    },
+    {
+        name: "Aileen li",
+        title: "Eboard, Mentorship",
+        category: "Program Leads",
+        imageUrl: "/team_pics/aileen-li.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/aileen-li-9b0b621b4/",
+        slug: "aileen-li"
     },
     {
         name: "Seth Derusha",
@@ -122,12 +138,69 @@ export const team_members: TeamMember[] = [
         slug: "andy-li"
     },
     {
+        name: "Kaylee Chen",
+        title: "Events Coordinator",
+        category: "Operations",
+        imageUrl: "/team_pics/kaylee-chen.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/kaylee-chen-9b0b621b4/",
+        slug: "kaylee-chen"
+    },
+    {
         name: "Haley Ngai",
         title: "Operations, Marketing",
         category: "Operations",
         imageUrl: "/team_pics/haley-ngai.jpg",
         linkedinUrl: "https://www.linkedin.com/in/haley-ngai-9b0b621b4/",
         slug: "haley-ngai"
+    },
+    {
+        name: "Jennifer Huang",
+        title: "Creative Director",
+        category: "Operations",
+        imageUrl: "/team_pics/jennifer-huang.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/jennifer-huang-9b0b621b4/",
+        slug: "jennifer-huang",
+        fadeIn: "/team_pics/jenn-huang.jpg"
+    },
+    {
+        name: "Bryan Ko",
+        title: "Eboard, Mentorship",
+        category: "Program Leads",
+        imageUrl: "/team_pics/bryan-ko.png",
+        linkedinUrl: "https://www.linkedin.com/in/bryan-ko-9b0b621b4/",
+        slug: "bryan-ko"
+    },
+    {
+        name: "Yoonchul Shin",
+        title: "Events Coordinator",
+        category: "Operations",
+        imageUrl: "/team_pics/yoonchul-shin.png",
+        linkedinUrl: "https://www.linkedin.com/in/yoonchul-shin-9b0b621b4/",
+        slug: "yoonchul-shin"
+    },
+    {
+        name: "Ellie Ho",
+        title: "Marketing Director",
+        category: "Operations",
+        imageUrl: "/team_pics/ellie-ho.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/ellie-ho-9b0b621b4/",
+        slug: "ellie-ho"
+    },
+    {
+    name: "Marc Lam",
+    title: "Marketing Director (Abroad)",
+    category: "Operations",
+    imageUrl: "/team_pics/marc-lam.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/marclam/",
+    slug: "marc-lam"
+    },
+    {
+        name: "Grace Gao",
+        title: "Eboard, Startup Week",
+        category: "Program Leads",
+        imageUrl: "/team_pics/grace-gao.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/grace-gao-9b0b621b4/",
+        slug: "grace-gao"
     },
     {
         name: "Vivek Patel",

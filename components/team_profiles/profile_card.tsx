@@ -9,6 +9,7 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
   const cardRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
+  const fadeImageRef = useRef<HTMLImageElement>(null)
   const linkedinRef = useRef<HTMLDivElement>(null)
   const greenShadowRef = useRef<HTMLDivElement>(null)
 
@@ -16,10 +17,11 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
     const card = cardRef.current
     const content = contentRef.current
     const image = imageRef.current
+    const fadeImage = fadeImageRef.current
     const linkedin = linkedinRef.current
     const greenShadow = greenShadowRef.current
 
-    if (!card || !content || !image || !linkedin || !greenShadow) return
+    if (!card || !content || !image || !greenShadow) return
 
     // Create a timeline instance scoped to this component
     let enterTimeline: gsap.core.Timeline | null = null
@@ -31,6 +33,11 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
       transformOrigin: "bottom",
       opacity: 0
     })
+    
+    // Set initial state for fade image if it exists
+    if (fadeImage && member.fadeIn) {
+      gsap.set(fadeImage, { opacity: 0, delay: 0.3 })
+    }
     
     // Position content so LinkedIn is initially hidden below the card
     gsap.set(content, { y: linkedin ? 45 : 0 })
@@ -54,6 +61,16 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
           duration: 0.3,
           ease: "power2.out"
         }, 0)
+      
+      // Fade in the second image if it exists
+      if (fadeImage && member.fadeIn) {
+        enterTimeline.to(fadeImage, {
+          opacity: 1,
+          duration: 0.6,
+          delay:0.2,
+          ease: "power2.out"
+        }, 0)
+      }
     }
 
     // Hover exit animation - scoped to this card's elements only
@@ -79,6 +96,15 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
           duration: 0.3, 
           ease: "power2.in" 
         }, 0)
+      
+      // Fade out the second image if it exists
+      if (fadeImage && member.fadeIn) {
+        exitTimeline.to(fadeImage, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.in"
+        }, 0)
+      }
 
     }
 
@@ -93,7 +119,7 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
       if (enterTimeline) enterTimeline.kill()
       if (exitTimeline) exitTimeline.kill()
     }
-  }, [])
+  }, [member.fadeIn])
 
   return (
     <div 
@@ -113,6 +139,17 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
         height={694}
         className="w-full h-full object-cover"
         />
+        {/* Fade in image that appears on hover */}
+        {member.fadeIn && (
+          <Image
+            ref={fadeImageRef}
+            src={member.fadeIn}
+            alt={`${member.name} hover`}
+            width={392}
+            height={694}
+            className="absolute inset-0 w-full h-full object-cover opacity-0"
+          />
+        )}
     {/* Permanent text background for readability */}
     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent h-32"></div>
     {/* Green shadow effect that appears on hover - layered on top */}

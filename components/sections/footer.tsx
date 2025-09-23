@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <p>© 2023 Your Company. All rights reserved.</p>
+        <p>© 2025 Tech@NYU. All rights reserved.</p>
         <div className='w-full text-gray-600 flex items-center justify-center py-4 text-sm'>
             <p>Made by Jennifer Huang and Sean Lai 2025.</p>
         </div>

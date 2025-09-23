@@ -14,6 +14,7 @@ export type TeamMember = {
   imageUrl: string;
   linkedinUrl?: string;
   slug: string;
+  fadeIn?: string; // Optional second image URL to fade in on hover
 };
 
 export type ValueCardProps = {
