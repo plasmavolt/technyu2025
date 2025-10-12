@@ -31,7 +31,7 @@ const NavigationDropdown: React.FC<NavigationDropdownProps> = ({
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className={cn(
-            "text-md font-normal text-white transition-colors focus:outline-none",
+            "text-xl lg:text-2xl font-bold text-white transition-colors focus:outline-none",
             className
           )}>
             {name}

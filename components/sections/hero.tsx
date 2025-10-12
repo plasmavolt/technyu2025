@@ -46,7 +46,7 @@ const Hero = () => {
               phrases={['The Space for Artists, Makers, and Hackers to Build @ NYU.']} 
               customDelay={0.75} 
               duration={1.5}
-              style='className="text-sm sm:text-base md:text-lg lg:text-[2vw] text-left font-satoshi tracking-tight'
+              style='className="text-sm sm:text-base md:text-xl lg:text-[2.5vw] text-left font-satoshi tracking-tight'
             />
           </div>
         </div>

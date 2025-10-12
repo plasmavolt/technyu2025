@@ -4,7 +4,8 @@ export type ProgramCardProps = {
   appOpen: boolean;
   svgicon: string;
   tagline: string;
-  description: string;
+  description_small: string;
+  description_large: string;
 };
 
 export type TeamMember = {

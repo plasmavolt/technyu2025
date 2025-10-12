@@ -2,20 +2,22 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 // When the time comes to build the program pages
-// import NavigationDropdown from './navigation_dropdown'
-// import { programs } from '@/lib/consts'
+import NavigationDropdown from './navigation_dropdown'
+import { programs } from '@/lib/consts'
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './style.module.css';
 import NavbarMobile from './navbar-mobile'
 
 const Navbar = () => {
-
+  const pathname = usePathname()
+  const isRootRoute = pathname === '/'
   const [isActive, setIsActive] = useState(false);
   return (
     <motion.div 
       className='fixed w-full z-[30]'
-      initial={{ opacity: 0 }}
+      initial={{ opacity: isRootRoute ? 0 : 1 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5, delay: 0.75, ease:[0.65, 0, 0.35, 1] }}
       
@@ -24,11 +26,11 @@ const Navbar = () => {
             <div className='outline outline-white rounded-xl lg:rounded-3xl w-[90%] md:w-[85svw] lg:w-[95svw] h-16 md:min-h-24 p-5 text-lg bg-black mt-2 md:mt-10 flex'>
                 <div className='w-full h-full flex justify-between items-center'>
                     <Link href="/">
-                        <Image src="/logo.svg" alt="tech@nyu logo" width={200} height={50} className='object-contain w-[160px] h-[40px] md:w-[200px] md:h-[50px]'/>
+                        <Image src="/logo.svg" alt="tech@nyu logo" width={200} height={50} className='object-contain w-[120px] h-[30px] md:w-[200px] md:h-[50px]'/>
                     </Link>
                     <div className='gap-5 md:gap-10 text-xl lg:text-2xl hidden md:flex text-center'>
                         <Link href="/team" className='text-white hover:underline '>Team</Link>
-                        {/* <NavigationDropdown name="Programs" items={programs.map(prog => ({ name: prog, href: `#${prog.toLowerCase().replace(/\s+/g, '-')}` }))} /> */}
+                        <NavigationDropdown name="Programs" items={programs.map(prog => ({ name: prog.name, href: prog.href }))} />
                         {/* For future patch */}
                         <Link href="mailto:hello@techatnyu.org" className='text-white hover:underline'>Collab</Link>
                         <Link href="mailto:hello@techatnyu.org" className='text-white hover:underline'>Contact</Link>

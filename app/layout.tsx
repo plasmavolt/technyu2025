@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${satoshi.variable} antialiased bg-black`}
+        className={`${satoshi.variable} antialiased bg-[#000000]`}
       >
           <Navbar />
           {children}
