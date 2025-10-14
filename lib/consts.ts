@@ -279,52 +279,52 @@ export const techTreksTutorData = {
 // Tech Treks parallax gallery images data
 export const techTreksGalleryImages = [
     {
-      src: "/event_pics/img1.jpg",
+      src: "/event-pics/img1.jpg",
       alt: "Tech Treks Event 1",
       style: "top-10 left-10 w-64 h-80"
     },
     {
-      src: "/event_pics/img2.jpg", 
+      src: "/event-pics/img2.jpg", 
       alt: "Tech Treks Event 2",
       style: "top-32 right-16 w-56 h-72"
     },
     {
-      src: "/event_pics/img3.jpg",
+      src: "/event-pics/img3.jpg",
       alt: "Tech Treks Event 3", 
       style: "top-64 left-1/4 w-60 h-76"
     },
     {
-      src: "/event_pics/img4.jpg",
+      src: "/event-pics/img4.jpg",
       alt: "Tech Treks Event 4",
       style: "top-20 right-1/3 w-52 h-68"
     },
     {
-      src: "/event_pics/img5.jpg",
+      src: "/event-pics/img5.jpg",
       alt: "Tech Treks Event 5",
       style: "top-96 left-16 w-58 h-74"
     },
     {
-      src: "/event_pics/img6.jpg",
+      src: "/event-pics/img6.jpg",
       alt: "Tech Treks Event 6",
       style: "top-44 right-10 w-54 h-70"
     },
     {
-      src: "/event_pics/img7.jpg",
+      src: "/event-pics/img7.jpg",
       alt: "Tech Treks Event 7",
       style: "top-16 left-1/3 w-62 h-78"
     },
     {
-      src: "/event_pics/img10.jpg",
+      src: "/event-pics/img10.jpg",
       alt: "Tech Treks Event 8",
       style: "top-80 right-1/4 w-56 h-72"
     },
     {
-      src: "/event_pics/eboard_pic.JPG",
+      src: "/event-pics/eboard_pic.JPG",
       alt: "Tech Treks Eboard",
       style: "top-52 left-20 w-68 h-84"
     },
     {
-      src: "/event_pics/eboardpic1.jpg",
+      src: "/event-pics/eboardpic1.jpg",
       alt: "Tech Treks Team",
       style: "top-28 right-12 w-60 h-76"
     }
