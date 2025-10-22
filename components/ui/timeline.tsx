@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Timeline = () => {
+const Timeline = ({events:}) => {
   return (
     <div>
-        
+
     </div>
   )
 }

@@ -39,17 +39,17 @@ const Page = () => {
           }, {
             title: "Iteration",
             description: "As you acquire users, learn how to iterate quick, respond, and add features to support a growing userbase leveraging Tech@NYU's network.",
-            content: <Image src="/event-pics/keynote.jpg" alt="keynote" fill className='object-contain w-full h-full' />
+            content: <Image src="/event-pics/devteam2.jpg" alt="keynote" fill className='object-contain w-full h-full' />
           },
           {
             title: "Showcase",
             description: "Finally show off to a panel of technical founders and experts, with the repository becoming opensource for your portfolio.",
-            content: <Image src="/event-pics/panel.jpg" alt="panel" fill className='object-contain w-full h-full' />
+            content: <Image src="/event-pics/devteam3.jpg" alt="panel" fill className='object-contain w-full h-full' />
           }, 
           {
             title: "Workshops",
             description: "Internal workshops hosted by the club to help upskill. Workshops have covered RAG, MCP, Agentic Frameworks, Post training, Database sharding and optimizations, and more!",
-            content: <Image src="/event-pics/workshop.jpg" alt="workshop" fill className='object-contain w-full h-full' />
+            content: <Image src="/event-pics/panel.jpg" alt="workshop" fill className='object-contain w-full h-full' />
           }
         
         ]}

@@ -1,0 +1,15 @@
+.rectangle {
+  width: 95%;
+  min-height: 40vh;
+  stroke: white;
+  background: black;
+  outline: 2px solid rgb(143, 35, 35);
+  /* -webkit-box-shadow: inset 0px 22px 27px -13px #8F0000, inset 0px 10px 26px -13px #DE6A6A;  */
+}
+
+.green{
+  box-shadow: inset 0px 22px 40px -13px #FF4B2B, inset 0px 10px 26px -13px #DE6A6A;
+}
+
+.purple{
+}

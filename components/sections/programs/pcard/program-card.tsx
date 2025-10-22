@@ -6,7 +6,7 @@ import Image from 'next/image'
 import ProgramBar from './program-bar'
 
 const ProgramCard = ({ProgramDetail, variant}: {ProgramDetail: ProgramCardProps, variant: string}) => {
-  const { name, url, svgicon, tagline, description_large, description_small } = ProgramDetail;
+  const { name, url, svgicon, tagline, description_large, description_small, desktopImage} = ProgramDetail;
 
   // State for description based on screen size
   const [description, setDescription] = useState(description_small);
@@ -56,10 +56,10 @@ const ProgramCard = ({ProgramDetail, variant}: {ProgramDetail: ProgramCardProps,
       </div>
       <div className='w-[52%] hidden lg:block pr-10 pl-5 xl:pr-0'>
         <Image
-          src={`/team_pics/cyan-yan.jpg`}
+          src={`${desktopImage}`}
           alt={`${name} logo`}
-          width={200}
-          height={200}
+          width={2000}
+          height={2000}
           className='object-contain w-full h-full'
         />
       </div>

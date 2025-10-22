@@ -6,6 +6,7 @@ export type ProgramCardProps = {
   tagline: string;
   description_small: string;
   description_large: string;
+  desktopImage: string;
 };
 
 export type TeamMember = {
