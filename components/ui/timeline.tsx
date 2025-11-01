@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-const Timeline = ({events:}) => {
-  return (
-    <div>
+// const Timeline = ({events:}) => {
+//   return (
+//     <div>
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Timeline
+// export default Timeline

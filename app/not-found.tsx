@@ -1,5 +1,4 @@
 import Card404 from '@/components/404/404card'
-import ValueCard from '@/components/sections/values/value_card'
 import { ValueCardProps } from '@/lib/types'
 import React from 'react'
 

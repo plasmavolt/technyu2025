@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { MaskText } from '../inlinemask/inline-mask';
 
 const Hero = () => {
