@@ -39,12 +39,11 @@ const Hero = () => {
       <video 
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
+        playsInline
         autoPlay
         muted
-        playsInline
-        poster={'/images/hero-pic.jpg'}
       >
-        <source src="/video/hero.mp4" type="video/mp4" />
+        <source src="/hero.webm" type="video/webm" />
       </video>
       
       {/* Dark overlay to make text more readable */}
