@@ -124,7 +124,7 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
   return (
     <div 
       ref={cardRef} 
-      className="relative group overflow-hidden border border-border cursor-pointer block min-h-[300px] sm:min-h-[325px] lg:min-h-[350px] aspect-[4/5]"
+      className="relative group overflow-hidden border border-border cursor-pointer block min-h-[300px] sm:min-h-[325px] lg:min-h-[350px] aspect-[4/5] lg:max-h-[500px]"
     >
       <a
         href={`/team/${member.slug}`}
