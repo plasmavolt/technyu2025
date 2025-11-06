@@ -16,14 +16,14 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <motion.div 
-      className='fixed w-[100svw] z-[30]'
+      className='fixed w-full z-[100]'
       initial={{ opacity: isRootRoute ? 0 : 1 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5, delay: 0.75, ease:[0.65, 0, 0.35, 1] }}
       
     >
-        <div className='flex w-full justify-center relative font-bold p-[10px] pb-0 box-border z-[50]'>
-            <div className='outline outline-white rounded-xl lg:rounded-3xl w-[90%] md:w-[85svw] lg:w-[95svw] h-16 md:min-h-24 p-5 px-10 text-lg bg-black mt-2 md:mt-10 flex'>
+        <div className='flex w-full justify-center relative font-bold'>
+            <div className='outline outline-white rounded-xl lg:rounded-3xl w-[90svw] md:w-[85svw] lg:w-[95svw] h-16 md:min-h-24 p-5 px-3 md:px-10 text-lg bg-black mt-2 md:mt-10 flex z-[100]'>
                 <div className='w-full h-full flex justify-between items-center'>
                     <Link href="/">
                         <Image src="/logo.svg" alt="tech@nyu logo" width={1000} height={250} className='object-contain w-[120px] h-[30px] md:w-[200px] md:h-[50px] mt-1'/>

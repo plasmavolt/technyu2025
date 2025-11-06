@@ -6,7 +6,7 @@ import LogoSlider from '../ui/logo-slider'
 
 const History = () => {
   return (
-    <section id='history' className=' pt-10'>
+    <section id='history' className=' pt-30'>
         <MaskText
           style='text-white text-2xl lg:text-4xl font-extrabold italic px-[5vw]'
           phrases={["Building NYU's CS Talent since 2009"]} />

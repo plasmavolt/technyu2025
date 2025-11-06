@@ -44,7 +44,7 @@ const NavbarMobile = ({ setIsActive }: NavbarMobileProps) => {
 
     const [selectedLink, setSelectedLink] = useState({isActive: false, index: 0});
     return (
-        <motion.div variants={height} initial="initial" animate="enter" exit="exit"  className={` ${satoshi.variable} overflow-hidden w-full md:hidden`}>
+        <motion.div variants={height} initial="initial" animate="enter" exit="exit" className={`${satoshi.variable} overflow-hidden w-full md:hidden flex justify-center`}>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
                     <Body links={links} selectedLink={selectedLink} setSelectedLink={setSelectedLink} setIsActive={setIsActive}/>
