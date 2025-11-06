@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { MaskText } from '../inlinemask/inline-mask';
 import { gsap } from 'gsap';
+import CustomEase from 'gsap/CustomEase';
+
+gsap.registerPlugin(CustomEase);
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -18,28 +21,29 @@ const Hero = () => {
       // Trigger animation when 3 seconds remain
       const timeRemaining = video.duration - video.currentTime;
       
-      if (timeRemaining <= 23 && !hasAnimated) {
+      if (timeRemaining <= 22 && !hasAnimated) {
         hasAnimated = true;
         
         // Calculate responsive scale based on viewport width to match navbar proportions
-        // Navbar: w-[90%] md:w-[85svw] lg:w-[95svw]
+        // Navbar: w-[90svw] md:w-[85svw] lg:w-[95svw]
+        // Use actual svw units to account for scrollbar presence
         const viewportWidth = window.innerWidth;
-        let targetScale = 0.90; // default (90%)
+        let targetWidth = '90svw'; // default
         
         if (viewportWidth >= 1024) {
-          targetScale = 0.95; // lg breakpoint (95%)
+          targetWidth = '90svw'; // lg breakpoint
         } else if (viewportWidth >= 768) {
-          targetScale = 0.85; // md breakpoint (85%)
+          targetWidth = '85svw'; // md breakpoint
         }
         
         // Create GSAP timeline for smooth, synchronized animation
         const tl = gsap.timeline({
-          defaults: { duration: 1.5, ease: "power2.inOut" }
+          defaults: { duration: 1.8, ease: 'power2.inOut' }
         });
 
         tl.to(container, {
-          scale: targetScale,
-          y: '15vh',
+          width: targetWidth,
+          y: '20vh',
           boxShadow: "0 0 0 2px rgba(255, 255, 255, 0.3), 0 20px 40px -15px rgba(255, 255, 255, 0.15), 0 10px 20px -8px rgba(255, 255, 255, 0.1)",
           borderRadius: "24px",
         });
@@ -58,13 +62,13 @@ const Hero = () => {
       {/* Video container with animation target */}
       <div 
         ref={containerRef}
-        className="relative w-full h-[100svh] overflow-hidden z-[30]"
+        className="relative w-[100svw] h-[100svh] overflow-hidden z-[30]"
         style={{ transformOrigin: 'center top' }}
       >
         {/* Full screen video */}
         <video 
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover aspect-video"
           playsInline
           autoPlay
           muted
