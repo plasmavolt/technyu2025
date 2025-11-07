@@ -19,7 +19,7 @@ const TeamFiltersDesktop = ({
   setSearchQuery
 }: TeamFiltersDesktopProps) => {
   return (
-    <div className='hidden lg:flex w-[90%] md:w-[85svw] lg:w-[95svw] px-[7svw] lg:px-[2svw] justify-between'>
+    <div className='hidden lg:flex w-[90%] md:w-[85svw] lg:w-[95svw] lg:px-[2svw] justify-between'>
       <div className='py-2 mb-6'>
         <h2 className='font-bold font-satoshi text-3xl text-white'>Team</h2>
       </div>
