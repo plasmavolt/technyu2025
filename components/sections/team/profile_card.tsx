@@ -5,7 +5,7 @@ import { TeamMember } from '@/lib/types'
 import { gsap } from 'gsap'
 import { ArrowUpRight } from 'lucide-react'
 
-const ProfileCard = ({ member }: { member: TeamMember }) => {
+const ProfileCard = ({ member, priority }: { member: TeamMember, priority?: boolean }) => {
   const cardRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLImageElement>(null)
@@ -132,12 +132,13 @@ const ProfileCard = ({ member }: { member: TeamMember }) => {
         aria-label={`Learn more about ${member.name}`}
       />
         <Image
-        ref={imageRef}
-        src={member.imageUrl}
-        alt={member.name}
-        width={392}
-        height={694}
-        className="w-full h-full object-cover"
+          ref={imageRef}
+          src={member.imageUrl}
+          alt={member.name}
+          width={392}
+          height={694}
+          className="w-full h-full object-cover"
+          priority={priority ? priority : false}
         />
         {/* Fade in image that appears on hover */}
         {member.fadeIn && (
