@@ -138,7 +138,8 @@ const ProfileCard = ({ member, priority }: { member: TeamMember, priority?: bool
           width={392}
           height={694}
           className="w-full h-full object-cover"
-          priority={priority ? priority : false}
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
         />
         {/* Fade in image that appears on hover */}
         {member.fadeIn && (
@@ -149,6 +150,7 @@ const ProfileCard = ({ member, priority }: { member: TeamMember, priority?: bool
             width={392}
             height={694}
             className="absolute inset-0 w-full h-full object-cover opacity-0"
+            loading="lazy"
           />
         )}
     {/* Permanent text background for readability */}

@@ -107,7 +107,7 @@ const TeamGrid = () => {
       >
         {filteredTeam.length > 0 ? (
           filteredTeam.map((member: TeamMember, index: number) => (
-            <ProfileCard key={member.slug} member={member} priority={index < 5} />
+            <ProfileCard key={member.slug} member={member} priority={index < 9} />
           ))
         ) : (
           <></>
