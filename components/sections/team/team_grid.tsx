@@ -2,24 +2,26 @@
 
 import React, { useState, useMemo, useRef } from 'react'
 import ProfileCard from './profile_card'
-import { team_members } from '@/lib/consts'
 import { TeamMember } from '@/lib/types'
 import TeamFiltersDesktop from './team_filters_desktop'
 import TeamFiltersMobile from './team_filters_mobile'
 import { gsap } from 'gsap'
 
-const TeamGrid = () => {
+interface TeamGridProps {
+  initialTeamMembers: TeamMember[]
+}
+
+const TeamGrid = ({ initialTeamMembers }: TeamGridProps) => {
   const [searchQuery, setSearchQuery] = useState("")
   const [activeFilter, setActiveFilter] = useState("All")
   const [displayedFilter, setDisplayedFilter] = useState("All")
-  // onst [isAnimating, setIsAnimating] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)
 
   // Extract unique categories from team members
   const categories = useMemo(() => {
-    const uniqueCategories = [...new Set(team_members.map(member => member.category))]
+    const uniqueCategories = [...new Set(initialTeamMembers.map(member => member.category))]
     return ["All", ...uniqueCategories]
-  }, [])
+  }, [initialTeamMembers])
 
   // Custom filter handler to trigger animation
   const handleFilterChange = (newFilter: string) => {
@@ -58,24 +60,24 @@ const TeamGrid = () => {
 
   // Filter team members based on search and category
   const filteredTeam = useMemo(() => {
-    let filtered = team_members
+    let filtered = initialTeamMembers
 
     // Apply category filter (use displayedFilter during animation)
     if (displayedFilter !== "All") {
-      filtered = filtered.filter(member => member.category === displayedFilter)
+      filtered = filtered.filter((member: TeamMember) => member.category === displayedFilter)
     }
 
     // Apply search filter (search through name and title) - instant, no animation
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim()
-      filtered = filtered.filter(member => 
+      filtered = filtered.filter((member: TeamMember) => 
         member.name.toLowerCase().includes(query) ||
         member.title.toLowerCase().includes(query)
       )
     }
 
     return filtered
-  }, [searchQuery, displayedFilter])
+  }, [initialTeamMembers, searchQuery, displayedFilter])
 
   return (
     <div className='w-[100svw] h-fit flex flex-col items-center justify-center pb-[20svh]'>
@@ -112,7 +114,9 @@ const TeamGrid = () => {
             </div>
           ))
         ) : (
-          <></>
+          <div className="col-span-full flex justify-center items-center py-20">
+            <p className="text-white text-lg">No team members found</p>
+          </div>
         )}
       </div>
     </div>

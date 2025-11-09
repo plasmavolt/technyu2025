@@ -25,3 +25,23 @@ export type ValueCardProps = {
   description: string;
 };
 
+export type EboardBio = {
+  name: string;
+  slug: string;
+  position?: string;
+  category?: string;
+  shortDescription?: string;
+  linkedinUrl?: string;
+  profileImage: {
+    url: string;
+    alt?: string;
+  };
+  qa?: {
+    question: string;
+    answer: string;
+    media?: {
+      url: string;
+      alt?: string;
+    } | null;
+  }[];
+};
