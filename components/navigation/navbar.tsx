@@ -33,13 +33,13 @@ const Navbar = () => {
         // Show navbar when scrolling up, hide when scrolling down
         if (currentScrollY < lastScrollY) {
           setIsVisible(true);
-        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
           // Only hide after scrolling down past 100px
           setIsVisible(false);
         }
         
         setLastScrollY(currentScrollY);
-      }, 100); // 50ms debounce
+      }, 50); // 50ms debounce
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

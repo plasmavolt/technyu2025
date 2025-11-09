@@ -7,6 +7,8 @@ import { EboardBio } from '@/lib/types'
 import { Metadata } from 'next'
 import { client } from '@/lib/sanity/client'
 import { Separator } from '@radix-ui/react-dropdown-menu'
+import { TimelineNav } from '@/components/team_profiles/timeline-nav'
+import { Timeline, exampleTimelineData } from '@/components/team_profiles/timeline'
 
 interface PageProps {
   params: Promise<{
@@ -124,49 +126,64 @@ export default async function EboardBioPage({ params }: PageProps) {
       {/* Separator */}
       <Separator className='w-full h-[2px] bg-white/10 mt-10'/>
 
-      {/* Q&A Section */}
-      <div className="container mx-auto px-6 pb-16 md:pb-24 pt-6 md:pt-12">
+      {/* Content Section with Timeline Navigation */}
+      <div className="container mx-auto px-6 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
-          {/* Q&A Section with Timeline */}
-          {bio.qa && bio.qa.length > 0 && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-              {/* Left Sidebar - Timeline (Empty for now) */}
-              <div className="hidden lg:block lg:col-span-3">
-                <div className="sticky top-32">
-                  {/* Timeline placeholder - can be populated later */}
-                </div>
-              </div>
-
-              {/* Main Content - Q&A */}
-              <div className="lg:col-span-9 space-y-16">
-                {bio.qa.map((item, index) => (
-                  <div key={index} className="space-y-6">
-                    {/* Question */}
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                      {item.question}
-                    </h2>
-                    
-                    {/* Answer */}
-                    <p className="text-base md:text-lg text-gray-300 leading-relaxed whitespace-pre-wrap max-w-3xl">
-                      {item.answer}
-                    </p>
-                    
-                    {/* Optional Media */}
-                    {item.media?.url && (
-                      <div className="relative w-full max-w-3xl h-64 md:h-96 rounded-lg overflow-hidden mt-8">
-                        <Image
-                          src={item.media.url}
-                          alt={item.media.alt || item.question}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Left Sidebar - Timeline Navigation */}
+            <div className="hidden lg:block lg:col-span-3">
+              <div className="sticky top-0">
+                <TimelineNav />
               </div>
             </div>
-          )}
+
+            {/* Main Content */}
+            <div className="lg:col-span-9 space-y-24 pt-6 md:pt-12">
+              {/* Background Section with Timeline */}
+              <section id="background" className="scroll-mt-32">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">Background</h2>
+                <div className="space-y-8">
+                  <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                    Here&apos;s how they rose to their current role at Tech@NYU:
+                  </p>
+                  <Timeline events={exampleTimelineData} />
+                </div>
+              </section>
+
+              {/* About Section (Q&A) */}
+              {bio.qa && bio.qa.length > 0 && (
+                <section id="about" className="scroll-mt-32">
+                  <div className="space-y-16">
+                    {bio.qa.map((item, index) => (
+                      <div key={index} className="space-y-6">
+                        {/* Question */}
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+                          {item.question}
+                        </h3>
+                        
+                        {/* Answer */}
+                        <p className="text-base md:text-lg text-gray-300 leading-relaxed whitespace-pre-wrap max-w-3xl">
+                          {item.answer}
+                        </p>
+                        
+                        {/* Optional Media */}
+                        {item.media?.url && (
+                          <div className="relative w-full max-w-3xl h-64 md:h-96 rounded-lg overflow-hidden mt-8">
+                            <Image
+                              src={item.media.url}
+                              alt={item.media.alt || item.question}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          </div>
 
           {/* Back Button */}
           <div className="mt-16 pt-8 border-t border-gray-800">
