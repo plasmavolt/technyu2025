@@ -127,7 +127,7 @@ export default async function EboardBioPage({ params }: PageProps) {
       <Separator className='w-full h-[2px] bg-white/10 mt-10'/>
 
       {/* Content Section with Timeline Navigation */}
-      <div className="container mx-auto px-6 pb-16 md:pb-24">
+      <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left Sidebar - Timeline Navigation */}
@@ -138,7 +138,7 @@ export default async function EboardBioPage({ params }: PageProps) {
             </div>
 
             {/* Main Content */}
-            <div className="lg:col-span-9 space-y-24 pt-6 md:pt-12">
+            <div className="lg:col-span-9 space-y-24 pt-6 md:pt-12 mb-20">
               {/* Background Section with Timeline */}
               <section id="background" className="scroll-mt-32">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8">Background</h2>
@@ -183,19 +183,6 @@ export default async function EboardBioPage({ params }: PageProps) {
                 </section>
               )}
             </div>
-          </div>
-
-          {/* Back Button */}
-          <div className="mt-16 pt-8 border-t border-gray-800">
-            <Link
-              href="/team"
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Team
-            </Link>
           </div>
         </div>
       </div>

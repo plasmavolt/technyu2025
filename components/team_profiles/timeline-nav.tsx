@@ -91,7 +91,7 @@ export function TimelineNav() {
         }}
       />
       
-      <div className="space-y-6 lg:pt-16">
+      <div className="space-y-6 pt-[20svh]">
         {sections.map((section) => (
           <button
             key={section.id}
