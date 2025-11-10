@@ -179,7 +179,7 @@ export default async function EboardBioPage({ params }: PageProps) {
                   {bio.timeline && bio.timeline.length > 0 ? (
                     <Timeline events={bio.timeline.map(item => ({
                       ...item,
-                      description: item.description || ''
+                      description: ''
                     }))} />
                   ) : (
                     <p className="text-lg text-gray-400 italic">No timeline data available yet.</p>
