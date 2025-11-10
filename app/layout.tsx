@@ -20,7 +20,9 @@ export default function RootLayout({
         className={`${satoshi.variable} w-[100svw] overflow-x-clip antialiased bg-[#000000] dark:bg-[#000000] scheme-only-dark`}
       >
           <Navbar />
+          <main>
           {children}
+          </main>
           <Footer />
       </body>
     </html>
