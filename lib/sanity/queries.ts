@@ -42,6 +42,11 @@ const eboardBioQuery = `
     },
     "position": *[_type == "teamMember" && slug.current == ^.slug][0].title,
     "category": *[_type == "teamMember" && slug.current == ^.slug][0].category,
+    timeline[]{
+      year,
+      title,
+      order
+    } | order(year desc, order asc),
     qa[]{
       question,
       answer,

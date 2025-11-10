@@ -25,17 +25,24 @@ export type ValueCardProps = {
   description: string;
 };
 
+export type TimelineItem = {
+  year: string;
+  title: string;
+  order: number;
+};
+
 export type EboardBio = {
   name: string;
   slug: string;
-  position?: string;
-  category?: string;
+  position?: string; // From teamMember.title
+  category?: string; // From teamMember.category
   shortDescription?: string;
   linkedinUrl?: string;
   profileImage: {
     url: string;
     alt?: string;
   };
+  timeline?: TimelineItem[];
   qa?: {
     question: string;
     answer: string;

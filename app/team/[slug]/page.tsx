@@ -8,8 +8,7 @@ import { Metadata } from 'next'
 import { client } from '@/lib/sanity/client'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import { TimelineNav } from '@/components/team_profiles/timeline-nav'
-import { Timeline, exampleTimelineData } from '@/components/team_profiles/timeline'
-
+import { Timeline } from '@/components/team_profiles/timeline'
 interface PageProps {
   params: Promise<{
     slug: string
@@ -167,15 +166,24 @@ export default async function EboardBioPage({ params }: PageProps) {
             </div>
                   
             {/* Main Content */}
-            <div className="lg:col-span-9 space-y-24 pt-[20svh] mb-20">
+            <div className="lg:col-span-9 space-y-24 pt-[19.5svh] mb-20">
               {/* Background Section with Timeline */}
-              <section id="background" className="scroll-mt-32">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">Background</h2>
+              <section id="background" className="">
+                <h2 
+                  tabIndex={0}
+                  className="text-3xl md:text-4xl font-bold mb-8"
+                >
+                  Background
+                </h2>
                 <div className="space-y-8">
-                  <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                    Here&apos;s how they rose to their current role at Tech@NYU:
-                  </p>
-                  <Timeline events={exampleTimelineData} />
+                  {bio.timeline && bio.timeline.length > 0 ? (
+                    <Timeline events={bio.timeline.map(item => ({
+                      ...item,
+                      description: item.description || ''
+                    }))} />
+                  ) : (
+                    <p className="text-lg text-gray-400 italic">No timeline data available yet.</p>
+                  )}
                 </div>
               </section>
 
@@ -186,7 +194,10 @@ export default async function EboardBioPage({ params }: PageProps) {
                     {bio.qa.map((item, index) => (
                       <div key={index} className="space-y-6">
                         {/* Question */}
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+                        <h3 
+                          tabIndex={0}
+                          className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+                        >
                           {item.question}
                         </h3>
                         
