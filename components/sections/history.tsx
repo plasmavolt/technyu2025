@@ -9,7 +9,7 @@ const History = () => {
     <section id='history' className=' pt-[25vh]'>
         <MaskText
           style='text-white text-2xl lg:text-4xl font-extrabold italic px-[5vw]'
-          phrases={["Building NYU's CS Talent since 2009"]} />
+          phrases={["Building CS Talent Since 2009"]} />
 
         <div className='px-[5vw] text-white text-lg md:text-xl lg:text-2xl mt-6 w-full space-y-4'>
           <p>Founded in 2009, Tech@nyu has been the cornerstone for computer science enthusiasts at NYU.</p>

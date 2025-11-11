@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { MaskText } from '../inlinemask/inline-mask';
+import { MaskSVG } from '../inlinemask/inline-image-mask';
 import { gsap } from 'gsap';
 import CustomEase from 'gsap/CustomEase';
 
@@ -29,11 +31,13 @@ const Hero = () => {
         // Use actual svw units to account for scrollbar presence
         const viewportWidth = window.innerWidth;
         let targetWidth = '90svw'; // default
-        
+        let targetY = '10vh';
         if (viewportWidth >= 1024) {
           targetWidth = '90svw'; // lg breakpoint
+          targetY = '20vh';
         } else if (viewportWidth >= 768) {
           targetWidth = '85svw'; // md breakpoint
+          targetY = '12vh';
         }
         
         // Create GSAP timeline for smooth, synchronized animation
@@ -43,7 +47,7 @@ const Hero = () => {
 
         tl.to(container, {
           width: targetWidth,
-          y: '20vh',
+          y: targetY,
           boxShadow: "0 0 0 2px rgba(255, 255, 255, 0.3), 0 20px 40px -15px rgba(255, 255, 255, 0.15), 0 10px 20px -8px rgba(255, 255, 255, 0.1)",
           borderRadius: "24px",
         });
@@ -83,13 +87,23 @@ const Hero = () => {
         {/* Bottom-right aligned content with padding */}
         <div className="relative z-1 flex flex-col items-start justify-end w-full h-full text-white p-5 md:p-10 lg:py-12 lg:px-[2.5%]">
           <div className="w-full">
-            <h1 className="text-[15vw] tracking-tight sm:text-[10vw] md:text-[8vw] lg:text-[5vw] font-bold md:mb-3 lg:mb-1 mb-[1.5%] text-left font-satoshi z-[10]">
-              <MaskText 
-                phrases={['tech@nyu']} 
-                customDelay={0.75} 
-                duration={1.5}
-              />
-            </h1>
+            {/* SVG Logo with mask animation */}
+            <div className="mb-[1.5%] md:mb-3 lg:mb-1">
+              <MaskSVG
+                customDelay={0.75}
+                duration={1.7}
+                className="w-[70svw] sm:w-[60svw] md:w-[55svw] lg:w-[30svw]"
+              >
+                <Image 
+                  src="/logo.svg" 
+                  alt="Tech@NYU" 
+                  width={200}
+                  height={50}
+                  priority
+                  className="w-full h-auto"
+                />
+              </MaskSVG>
+            </div>
             <div className="text-2xl sm:text-4xl md:text-4xl lg:text-[2.25vw] text-left font-satoshi tracking-tight">
               <MaskText 
                 phrases={['The Space for Artists, Makers, and Hackers to Build @ NYU']} 
