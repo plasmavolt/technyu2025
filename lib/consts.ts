@@ -9,7 +9,7 @@ export const programs = [
 
 export const contacts: [string, string][] = [
     ["Email", "mailto:hello@techatnyu.org"],
-    ["Newsletter", "/newsletter"],
+    ["Newsletter", "https://stats.sender.net/forms/bD2Zye/view"],
     ["Instagram", "https://www.instagram.com/techatnyu"],
     ["Discord", "https://discord.gg/q3cBnFMpMQ"],
     ["LinkedIn", "https://www.linkedin.com/company/tech-at-nyu"],
