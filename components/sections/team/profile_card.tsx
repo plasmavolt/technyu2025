@@ -128,7 +128,7 @@ const ProfileCard = ({ member, priority }: { member: TeamMember, priority?: bool
     >
       <a
         href={`/team/${member.slug}`}
-        className="absolute inset-0 z-15 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-inset"
+        className="absolute inset-0 z-10 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-inset"
         aria-label={`Learn more about ${member.name}`}
       />
         <Image
@@ -177,7 +177,7 @@ const ProfileCard = ({ member, priority }: { member: TeamMember, priority?: bool
               onClick={(e) => {
                 e.stopPropagation()
               }}
-              className="relative z-30 inline-flex items-center gap-2 text-sm text-white hover:opacity-80 transition-opacity underline underline-offset-4"
+              className="relative z-30 bg-transparent inline-flex items-center gap-2 text-sm text-white hover:opacity-80 transition-opacity underline underline-offset-4 py-1"
               aria-label={`${member.name}'s LinkedIn profile`}
             >
               <span>LinkedIn</span>
