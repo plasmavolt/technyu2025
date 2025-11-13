@@ -79,7 +79,7 @@ const Hero = () => {
           muted
           preload="auto"
         >
-          <source src="/hero_2025_fall.webm" type="video/webm" />
+          <source src="/hero.webm" type="video/webm" />
         </video>
         
         {/* Dark overlay to make text more readable */}
