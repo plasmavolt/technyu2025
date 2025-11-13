@@ -113,6 +113,7 @@ export default async function EboardBioPage({ params }: PageProps) {
                 fill
                 className="object-cover"
                 priority
+                loading='eager'
               />
             </div>
           </div>
