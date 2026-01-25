@@ -121,17 +121,17 @@ export const techTreksMemberData = {
     color: "green" as const
 };
 
-export const techTreksTutorData = {
-    title: "Tutor", 
-    description: "Share your expertise while continuing to learn",
+export const techTreksPMData = {
+    title: "Product Manager", 
+    description: "Lead a team of three in creating a semester long project",
     benefits: [
-      "Help members build their projects on Tuesdays",
-      "Optional additional office hours",
+      "Help members build their projects",
+      "Gain experience in managing full-stack projects",
       "Get all the perks that regular members get", 
       "Build mentorship and leadership skills",
       "Expand your network within the tech community"
     ],
-    buttonText: "Apply as Tutor",
+    buttonText: "Apply as PM",
     color: "green" as const
 };
 

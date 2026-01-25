@@ -1,6 +1,6 @@
 import React from 'react'
 import RoleCard from '@/components/ui/role-card'
-import { techTreksMemberData, techTreksTutorData } from '@/lib/consts'
+import { techTreksMemberData, techTreksPMData } from '@/lib/consts'
 
 interface RolesSelectionProps {
   applicationsOpen?: boolean
@@ -22,9 +22,9 @@ const RolesSelection = ({ applicationsOpen = false }: RolesSelectionProps) => {
           />
           
           <RoleCard
-            {...techTreksTutorData}
+            {...techTreksPMData}
             applicationsOpen={applicationsOpen}
-            onApply={() => console.log('Tutor application clicked')}
+            onApply={() => console.log('PM application clicked')}
           />
         </div>
       </div>
