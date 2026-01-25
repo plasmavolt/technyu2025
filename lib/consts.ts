@@ -119,7 +119,7 @@ export const techTreksMemberData = {
 
 export const techTreksPMData = {
     title: "Product Manager", 
-    description: "Lead a team of three in creating a semester long project",
+    description: "Lead a team of three in creating a semester long project - Applications open Feb. 9th!",
     benefits: [
       "Help members build their projects",
       "Gain experience in managing full-stack projects",
