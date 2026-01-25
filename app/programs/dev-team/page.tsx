@@ -1,9 +1,12 @@
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
 import React from 'react'
 import Image from 'next/image'
-import { ApplicationStatus } from '@/components/ui/ApplicationStatus'
+import { Apply } from '@/components/ui/Apply'
 import DevTeamRoles from '@/components/sections/dev-team-roles'
+import { getApplicationLink } from '@/lib/application-links'
 const Page = () => {
+  const { status, link } = getApplicationLink('Dev Team')
+
   return (
       <div className='pt-[5svh] md:pt-[20svh]'>
         <section id='about-dt' className='flex flex-col-reverse md:flex-row md:justify-between px-[5vw] md:px-[10svw] lg:px-[5svw]'>
@@ -18,7 +21,11 @@ const Page = () => {
                     <p className='text-white text-lg md:text-xl lg:text-2xl mb-6'>
                       Started in spring 2024, this program had alumni land FAANG, Jane St, startup internships, and launch their own design agency!
                     </p>
-                    <ApplicationStatus isOpen={false} color="red" className='md:w-[16rem]'/>
+                    <Apply
+                      isOpen={status}
+                      applicationLink={link}
+                      statusClassName='md:w-[16rem] md:mb-0'
+                    />
                   </div>
                   <Image
                     src={`/program-logos/dev-team.svg`}

@@ -1,11 +1,14 @@
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
 import React from 'react'
 import Image from 'next/image'
-import { ApplicationStatus } from '@/components/ui/ApplicationStatus'
+import { Apply } from '@/components/ui/Apply'
 import LogoSlider from '@/components/ui/logo-slider'
 import { startupWeekCompanies } from '@/lib/consts'
 import StartupWeekRoles from '@/components/sections/startup-week-roles'
+import { getApplicationLink } from '@/lib/application-links'
 const Page = () => {
+  const { status, link } = getApplicationLink('Startup Week')
+
   return (
       <div className='min-h-screen pt-[5svh] md:pt-[20svh] bg-[#000000]'>
         <section id='about-sw' className='flex flex-col-reverse md:flex-row md:justify-between px-[5vw]'>
@@ -23,7 +26,11 @@ const Page = () => {
                   <p className='text-white text-lg md:text-xl lg:text-2xl pb-10'>
                     Feel free to checkout the Startup Week website what we had for the 2025 version at <a href="https://www.nyustartupweek.org" className='text-blue-500 hover:text-blue-400 transition-colors'>www.nyustartupweek.org</a>
                   </p>
-                  <ApplicationStatus isOpen={false} color="red" className='md:w-[16rem]'/>
+                  <Apply
+                    isOpen={status}
+                    applicationLink={link}
+                    statusClassName='md:w-[16rem] md:mb-0'
+                  />
                   </div>
                   <Image
                     src={`/program-logos/startup-week.svg`}

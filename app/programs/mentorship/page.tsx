@@ -2,8 +2,9 @@
 import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
 import React from 'react'
 import Image from 'next/image'
-import { ApplicationStatus } from '@/components/ui/ApplicationStatus'
+import { Apply } from '@/components/ui/Apply'
 import { mentorshipFAQ } from '@/lib/consts'
+import { getApplicationLink } from '@/lib/application-links'
 import {
   Accordion,
   AccordionContent,
@@ -11,6 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 const Page = () => {
+  const { status, link } = getApplicationLink('Mentorship')
+
   return (
       <div className='pt-[5svh] md:pt-[20svh] bg-[#000000]'>
         <section id='about-sw' className='flex flex-col-reverse md:flex-row md:justify-between px-[5vw] md:px-[10svw] lg:px-[5svw]'>
@@ -26,7 +29,11 @@ const Page = () => {
                     Whether its building a startup, learning to ace leetcode interviews, building projects, its up to you and your effort.
                   </p>
 
-                  <ApplicationStatus isOpen={false} color="red" className='md:w-[16rem]'/>
+                  <Apply
+                    isOpen={status}
+                    applicationLink={link}
+                    statusClassName='md:w-[16rem] md:mb-0'
+                  />
                   </div>
                   <Image
                     src={`/program-logos/mentorship.svg`}
@@ -74,7 +81,11 @@ const Page = () => {
           <p className='text-white text-lg md:text-xl lg:text-2xl mb-6 max-w-3xl'>
             Applications for the Fall 2025 Mentorship Program are now closed. Stay tuned for updates on the Spring 2025 application period! In the mean time send questions you have to <a href="mailto:hello@techatnyu.org" className='hover:underline font-bold text-green-500'>hello@techatnyu.org</a>
           </p>
-          <ApplicationStatus isOpen={false} color="red" className='w-[40vw]' />
+          <Apply
+            isOpen={status}
+            applicationLink={link}
+            statusClassName='w-full md:w-[40vw] md:mb-0'
+          />
         </section>
         <section id='faq' className='mt-16 px-[5vw] pb-20'>
           <h2 className='text-white text-2xl md:text-4xl lg:text-4xl font-bold text-left mb-8 underline underline-offset-15'>

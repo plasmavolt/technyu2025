@@ -2,6 +2,7 @@
 import React from 'react'
 import RoleCard from '@/components/ui/role-card'
 import { devTeamRoles } from '@/lib/consts'
+import { getRoleApplicationLink } from '@/lib/application-links'
 
 const DevTeamRoles = () => {
   return (
@@ -18,14 +19,18 @@ const DevTeamRoles = () => {
         or integrating cutting-edge AI features, there&apos;s a perfect role for you on our team.
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8'>
-        {devTeamRoles.map((role, index) => (
-          <RoleCard
-            key={index}
-            {...role}
-            applicationsOpen={false}
-            onApply={() => console.log(`${role.title} application clicked`)}
-          />
-        ))}
+        {devTeamRoles.map((role, index) => {
+          const roleLink = getRoleApplicationLink('Dev Team', role.title)
+          return (
+            <RoleCard
+              key={index}
+              {...role}
+              applicationsOpen={roleLink.status}
+              applicationLink={roleLink.link}
+              onApply={() => console.log(`${role.title} application clicked`)}
+            />
+          )
+        })}
       </div>
     </section>
   )

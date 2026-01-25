@@ -31,7 +31,6 @@ export const programsLinks: ProgramCardProps[] = [
     {
         name: "Dev Team",
         url: "/programs/dev-team",
-        appOpen: false,
         svgicon: "/program-logos/dev-team.svg",
         tagline: "Build, Ship, Repeat",
         description_large: "Build in a small cohort from 0 -> 1, learning from users, and creating public proof of work as we embark on the startup lifecycle. Experience what top engineering teams have to do to acquire and maintain users in a semester long sprint.",
@@ -41,7 +40,6 @@ export const programsLinks: ProgramCardProps[] = [
     {
         name: "Tech Treks",
         url: "/programs/tech-treks",
-        appOpen: false,
         svgicon: "/program-logos/tech-treks.svg",
         tagline: "The original beginner program",
         description_small: "Explore the tech industry with us! Meet professionals, visit companies, and build your resume",
@@ -51,7 +49,6 @@ export const programsLinks: ProgramCardProps[] = [
     {
         name: "Startup Week",
         url: "/programs/startup-week",
-        appOpen: false,
         svgicon: "/program-logos/startup-week.svg",
         tagline: "Launch your startup journey",
         description_small: "Build your network in nyc with VCs, founders, and operators all while hosting events",
@@ -61,7 +58,6 @@ export const programsLinks: ProgramCardProps[] = [
     {
         name: "Mentorship",
         url: "/programs/mentorship",
-        appOpen: false,
         svgicon: "/program-logos/mentorship.svg",
         tagline: "Guidance from those who came before you",
         description_large: "Connect with experienced mentors who can provide valuable insights, advice, and support as you navigate your career in tech. We'll match a mentor on your goals, on your own time. Leverage our network to succeed in this market",
@@ -117,7 +113,7 @@ export const techTreksMemberData = {
       "Learn from hands-on workshops",
       "Build software projects for your portfolio"
     ],
-    buttonText: "Apply as Member",
+    buttonText: "Apply",
     color: "green" as const
 };
 
@@ -200,7 +196,7 @@ export const startupWeekRoles = [
             "Work with industry-standard design tools",
             "Create content that reaches thousands of students"
         ],
-        buttonText: "Apply for Design & Marketing",
+        buttonText: "Apply",
         color: "purple" as const
     },
     {
@@ -212,7 +208,7 @@ export const startupWeekRoles = [
             "Learn event planning at scale",
             "Gain experience in team coordination"
         ],
-        buttonText: "Apply for Operations",
+        buttonText: "Apply",
         color: "blue" as const
     },
     {
@@ -224,7 +220,7 @@ export const startupWeekRoles = [
             "Learn partnership and sponsorship strategies",
             "Develop communication and negotiation skills"
         ],
-        buttonText: "Apply for Outreach/Growth",
+        buttonText: "Apply",
         color: "green" as const
     },
     {
@@ -236,7 +232,7 @@ export const startupWeekRoles = [
             "Contribute to open-source projects",
             "Build tools used by hundreds of participants"
         ],
-        buttonText: "Apply for Engineering",
+        buttonText: "Apply",
         color: "orange" as const
     }
 ];
@@ -341,7 +337,7 @@ export const devTeamRoles = [
             "Build a portfolio with shipped designs",
             "Master Figma, user research, and design systems"
         ],
-        buttonText: "Apply as Designer",
+        buttonText: "Apply",
         color: "purple" as const
     },
     {
@@ -354,7 +350,7 @@ export const devTeamRoles = [
             "Master responsive design and web performance",
             "Collaborate in an agile development environment"
         ],
-        buttonText: "Apply as Frontend Dev",
+        buttonText: "Apply",
         color: "blue" as const
     },
     {
@@ -367,7 +363,7 @@ export const devTeamRoles = [
             "Handle real user data and scale challenges",
             "Master backend frameworks and system architecture"
         ],
-        buttonText: "Apply as Backend Dev",
+        buttonText: "Apply",
         color: "green" as const
     },
     {
@@ -380,7 +376,7 @@ export const devTeamRoles = [
             "Build AI-powered features users actually use",
             "Master ML frameworks, vector databases, and model serving"
         ],
-        buttonText: "Apply as ML Dev",
+        buttonText: "Apply",
         color: "orange" as const
     }
 ];

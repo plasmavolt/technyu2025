@@ -1,7 +1,6 @@
 export type ProgramCardProps = {
   name: string;
   url: string;
-  appOpen: boolean;
   svgicon: string;
   tagline: string;
   description_small: string;
