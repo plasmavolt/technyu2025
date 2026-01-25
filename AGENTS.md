@@ -37,7 +37,7 @@ npm run lint     # Run ESLint
 ### Application Links Logic
 
 #### Source of truth
-All application statuses and URLs live in `lib/application-links.json`. It is keyed by **program name** and may include a `roles` map keyed by **role title**.
+All application statuses and URLs live in `lib/application-links.json`. It is keyed by **program name** and may include a `roles` map keyed by **role title**. A link is required regardless of root status to show as open to avoid errors
 
 Example:
 ```json
