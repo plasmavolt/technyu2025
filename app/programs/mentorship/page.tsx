@@ -81,11 +81,20 @@ const Page = () => {
           <p className='text-white text-lg md:text-xl lg:text-2xl mb-6 max-w-3xl'>
             Applications for the Fall 2025 Mentorship Program are now closed. Stay tuned for updates on the Spring 2025 application period! In the mean time send questions you have to <a href="mailto:hello@techatnyu.org" className='hover:underline font-bold text-green-500'>hello@techatnyu.org</a>
           </p>
-          <Apply
-            isOpen={status}
-            applicationLink={link}
-            statusClassName='w-full md:w-[40vw] md:mb-0'
-          />
+          {status ? (
+            <a
+              href={link}
+              className='inline-block rounded-md border border-white bg-transparent px-6 py-3 font-semibold text-white transition-colors duration-[600ms] ease-in-out hover:bg-white hover:text-black'
+            >
+              Apply Now
+            </a>
+          ) : (
+            <Apply
+              isOpen={status}
+              applicationLink={link}
+              statusClassName='w-full md:w-[40vw] md:mb-0'
+            />
+          )}
         </section>
         <section id='faq' className='mt-16 px-[5vw] pb-20'>
           <h2 className='text-white text-2xl md:text-4xl lg:text-4xl font-bold text-left mb-8 underline underline-offset-15'>

@@ -1,7 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import { Apply } from '@/components/ui/Apply'
+import { getApplicationLink } from '@/lib/application-links'
 
 const AboutSection = () => {
+  const { status, link } = getApplicationLink('Tech Treks')
+
   return (
     <section id='about-tt' className='flex flex-col-reverse md:flex-row md:justify-between'>
       <div className='lg:max-w-[70vw] min-w-[40vw]'>
@@ -16,6 +20,13 @@ const AboutSection = () => {
         <p>
           PMs: You will aid members in building their projects by offering your expertise during our two weekly meetings. In return, you’ll get full-stack management experience and all the same perks that regular members receive!
         </p>
+        </div>
+        <div className='mt-6'>
+          <Apply
+            isOpen={status}
+            applicationLink={link}
+            statusClassName='md:w-[16rem] md:mb-0'
+          />
         </div>
       </div>
       <Image
