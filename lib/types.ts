@@ -30,11 +30,11 @@ export type TimelineItem = {
   order: number;
 };
 
-export type EboardBio = {
+export type ProfileBio = {
   name: string;
   slug: string;
-  position?: string; // From teamMember.title
-  category?: string; // From teamMember.category
+  position?: string; // From profile.title
+  category?: string; // From profile.category
   shortDescription?: string;
   linkedinUrl?: string;
   profileImage: {

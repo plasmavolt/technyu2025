@@ -3,8 +3,8 @@ import { client } from './client'
 import { TeamMember, SanityProgram } from '../types'
 
 // GROQ query for team members
-const teamMembersQuery = `
-  *[_type == "teamMember"]
+const teamMembersQuery = defineQuery(/* groq */ `
+  *[_type == "profile"]
   | order(order asc)
   {
     name,
@@ -12,13 +12,13 @@ const teamMembersQuery = `
     category,
     "slug": slug.current,
     "linkedinUrl": linkedinUrl,
-    "imageUrl": imageUrl.asset->url,
+    "imageUrl": profileImage.asset->url,
     "fadeIn": select(
       defined(fadeInImage.asset) => fadeInImage.asset->url,
       null
     )
   }
-`
+`)
 
 export async function getTeamMembers(): Promise<TeamMember[]> {
   try {
@@ -30,19 +30,19 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
   }
 }
 
-// GROQ query for individual e-board bio
-const eboardBioQuery = `
-  *[_type == "eboardBio" && slug == $slug][0]{
+// GROQ query for individual profile
+const profileQuery = defineQuery(/* groq */ `
+  *[_type == "profile" && slug.current == $slug][0]{
     name,
-    slug,
+    "slug": slug.current,
     shortDescription,
     "profileImage": {
       "url": profileImage.asset->url,
       "alt": profileImage.alt
     },
-    "position": *[_type == "teamMember" && slug.current == ^.slug][0].title,
-    "category": *[_type == "teamMember" && slug.current == ^.slug][0].category,
-    "linkedinUrl": *[_type == "teamMember" && slug.current == ^.slug][0].linkedinUrl,
+    "position": title,
+    category,
+    linkedinUrl,
     timeline[]{
       year,
       title,
@@ -60,14 +60,14 @@ const eboardBioQuery = `
       )
     }
   }
-`
+`)
 
-export async function getEboardBio(slug: string) {
+export async function getProfile(slug: string) {
   try {
-    const bio = await client.fetch(eboardBioQuery, { slug })
+    const bio = await client.fetch(profileQuery, { slug })
     return bio
   } catch (error) {
-    console.error('Error fetching e-board bio from Sanity:', error)
+    console.error('Error fetching profile from Sanity:', error)
     return null
   }
 }
@@ -75,7 +75,7 @@ export async function getEboardBio(slug: string) {
 // ===== Program Queries =====
 
 // Full program query with all sections expanded
-const programBySlugQuery = `
+const programBySlugQuery = defineQuery(/* groq */ `
   *[_type == "program" && slug.current == $slug][0]{
     _id,
     name,
@@ -184,7 +184,7 @@ const programBySlugQuery = `
     descriptionLarge,
     "desktopImageUrl": desktopImage.asset->url
   }
-`
+`)
 
 export async function getProgramBySlug(slug: string): Promise<SanityProgram | null> {
   try {
@@ -197,7 +197,7 @@ export async function getProgramBySlug(slug: string): Promise<SanityProgram | nu
 }
 
 // Get all programs for listings
-const allProgramsQuery = `
+const allProgramsQuery = defineQuery(/* groq */ `
   *[_type == "program"] | order(order asc) {
     _id,
     name,
@@ -213,7 +213,7 @@ const allProgramsQuery = `
       link
     }
   }
-`
+`)
 
 export type ProgramListItem = {
   _id: string;
