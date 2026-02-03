@@ -33,8 +33,8 @@ export const programsLinks: ProgramCardProps[] = [
         url: "/programs/dev-team",
         svgicon: "/program-logos/dev-team.svg",
         tagline: "Build, Ship, Repeat",
-        description_large: "Build in a small cohort from 0 -> 1, learning from users, and creating public proof of work as we embark on the startup lifecycle. Experience what top engineering teams have to do to acquire and maintain users in a semester long sprint.",
-        description_small: "Build in a small cohort a product from 0 -> 1. Learning what it takes to get and maintain users.",
+        description_small: "Build in a small cohort a product from 0 → 1. Learn what it takes to get and maintain users.",
+        description_large: "Build in a small cohort from 0 → 1, learning from users, and creating public proof of work as we embark on the startup lifecycle. Experience what top engineering teams have to do to acquire and maintain users in a semester long sprint.",
         desktopImage: "/program-logos/dev-team-desktop.jpg"
     },
     {
@@ -51,17 +51,17 @@ export const programsLinks: ProgramCardProps[] = [
         url: "/programs/startup-week",
         svgicon: "/program-logos/startup-week.svg",
         tagline: "Launch your startup journey",
-        description_small: "Build your network in nyc with VCs, founders, and operators all while hosting events",
-        description_large: "Join our committee pulling off NYU's student run entrepreunership week, Startup Week. Network with the rising stars, learn what these Startups are looking for, and build lasting connections and friendships.",
+        description_small: "Build your network in NYC with VCs, founders, and operators all while hosting events.",
+        description_large: "Join our committee pulling off NYU's student run entrepreneurship week, Startup Week. Network with the rising stars, learn what startups are looking for, and build lasting connections and friendships.",
         desktopImage: "/program-logos/startup-week-desktop.jpg"
     },
     {
         name: "Mentorship",
         url: "/programs/mentorship",
         svgicon: "/program-logos/mentorship.svg",
-        tagline: "Guidance from those who came before you",
-        description_large: "Connect with experienced mentors who can provide valuable insights, advice, and support as you navigate your career in tech. We'll match a mentor on your goals, on your own time. Leverage our network to succeed in this market",
+        tagline: "Guidance from those who came before",
         description_small: "Connect with mentors who can provide insights, advice, and support as you navigate your career in tech.",
+        description_large: "Connect with experienced mentors who can provide valuable insights, advice, and support as you navigate your career in tech. We'll match a mentor on your goals, on your own time. Leverage our network to succeed in this market.",
         desktopImage: "/program-logos/mentorship-desktop.jpg"
     }
 ]
@@ -88,15 +88,15 @@ export const valuesData: ValueCardProps[] = [
     {
         name: "Community",
         svgicon: "/value-logos/community.svg",
-        description: "Meet other tech-enthusiasts, builders, and curious minds."
+        description: "Meet other tech enthusiasts, builders, and curious minds."
     },
     {
-        name: "Learning", 
+        name: "Learning",
         svgicon: "/value-logos/learning.svg",
         description: "Pick up new skills or brush up your code."
     },
     {
-        name: "Creativity", 
+        name: "Creativity",
         svgicon: "/value-logos/creativity.svg",
         description: "Ideate and innovate your ideas through design and creative computing."
     }
