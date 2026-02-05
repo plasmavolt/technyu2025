@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState, useRef } from 'react'
+import { useNavigationSafe } from '@/contexts/navigation-context'
 
 interface TimelineSection {
   id: string
@@ -16,6 +17,11 @@ export function TimelineNav() {
   const [activeSection, setActiveSection] = useState<string>('background')
   const [squarePosition, setSquarePosition] = useState<number>(0)
   const buttonRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
+  const navRef = useRef<HTMLElement>(null)
+
+  // Access shared navigation state (synced with Navbar)
+  const navContext = useNavigationSafe()
+  const isNavbarVisible = navContext?.isNavbarVisible ?? true
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,9 +66,9 @@ export function TimelineNav() {
     // Small delay to ensure DOM is ready
     const timer = setTimeout(updateSquarePosition, 100)
     updateSquarePosition()
-    
+
     window.addEventListener('resize', updateSquarePosition)
-    
+
     return () => {
       clearTimeout(timer)
       window.removeEventListener('resize', updateSquarePosition)
@@ -79,18 +85,22 @@ export function TimelineNav() {
   }
 
   return (
-    <nav className="relative pl-6 min-h-screen">
+    <div
+      className="sticky transition-[top] duration-700 ease-[cubic-bezier(0.42,0,0.58,1)]"
+      style={{ top: isNavbarVisible ? 0 : -140 }}
+    >
+    <nav ref={navRef} className="relative pl-6 min-h-screen">
       {/* Vertical line - centered at left edge, spans full screen */}
       <div className="absolute left-0 top-0 h-screen w-[2px] bg-gray-800" />
 
       {/* Animated active indicator square */}
-      <div 
+      <div
         className="absolute left-[-4px] w-2 h-2 bg-white transition-all duration-300 ease-out"
-        style={{ 
+        style={{
           transform: `translateY(${squarePosition}px)`
         }}
       />
-      
+
       <div className="space-y-6 pt-[20svh]">
         {sections.map((section) => (
           <button
@@ -110,5 +120,6 @@ export function TimelineNav() {
         ))}
       </div>
     </nav>
+    </div>
   )
 }
