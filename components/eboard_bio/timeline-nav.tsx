@@ -89,7 +89,7 @@ export function TimelineNav() {
     <motion.div
       className="sticky"
       animate={{ top: isNavbarVisible ? 0 : -140 }}
-      transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      transition={{ duration: 0.7, ease: 'easeInOut' }}
     >
     <nav ref={navRef} className="relative pl-6 min-h-screen">
       {/* Vertical line - centered at left edge, spans full screen */}
