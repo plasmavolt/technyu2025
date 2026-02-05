@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import { useNavigationSafe } from '@/contexts/navigation-context'
+import { motion } from 'motion/react'
 
 interface TimelineSection {
   id: string
@@ -85,9 +86,10 @@ export function TimelineNav() {
   }
 
   return (
-    <div
-      className="sticky transition-[top] duration-700 ease-[cubic-bezier(0.42,0,0.58,1)]"
-      style={{ top: isNavbarVisible ? 0 : -140 }}
+    <motion.div
+      className="sticky"
+      animate={{ top: isNavbarVisible ? 0 : -140 }}
+      transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
     >
     <nav ref={navRef} className="relative pl-6 min-h-screen">
       {/* Vertical line - centered at left edge, spans full screen */}
@@ -120,6 +122,6 @@ export function TimelineNav() {
         ))}
       </div>
     </nav>
-    </div>
+    </motion.div>
   )
 }
